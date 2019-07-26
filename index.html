@@ -307,6 +307,23 @@
             });
         }
     }());
+    function __Print(){
+    var img_length = $("img").length;
+    var img_start = 0;
+    $('img').each(function(){
+        var oneImg = new Image();  
+        oneImg.src = $(this).attr('src'); 
+        oneImg.οnlοad=function(){
+            img_start++;
+            console.info(img_start);
+            if(img_start == img_length){
+                window.print();
+            }
+            
+        };
+    })
+    }
+    __Print();
     var game = new game(document.getElementById("map"));
     $("#bg").css("height",$(window).height())
     $("#bg button").eq(0).on("click",function () {
